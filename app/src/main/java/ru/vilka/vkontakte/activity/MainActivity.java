@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //vkAccessToken = VKAccessToken.tokenFromSharedPreferences(Vkontakte.getContext(), "token");
-
         if(!VKSdk.wakeUpSession(Vkontakte.getContext())) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }

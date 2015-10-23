@@ -47,8 +47,6 @@ public class LoginActivity extends Activity {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
             @Override
             public void onResult(VKAccessToken res) {
-                //res.saveTokenToSharedPreferences(Vkontakte.getContext(), "token");
-
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
             }
