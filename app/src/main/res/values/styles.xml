@@ -7,4 +7,5 @@
         <item name="android:windowBackground">@color/background_app</item>
     </style>
 
+
 </resources>
