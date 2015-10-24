@@ -12,6 +12,7 @@ import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
+import com.vk.sdk.dialogs.VKCaptchaDialog;
 
 import ru.vilka.vkontakte.R;
 
@@ -52,7 +53,9 @@ public class LoginActivity extends Activity {
             }
             @Override
             public void onError(VKError error) {
-
+                if(error.errorCode == 14){
+                    new VKCaptchaDialog(error);
+                }
             }
         })) {
             super.onActivityResult(requestCode, resultCode, data);
