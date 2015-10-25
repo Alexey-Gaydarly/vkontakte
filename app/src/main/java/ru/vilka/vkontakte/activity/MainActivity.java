@@ -9,6 +9,8 @@ import com.vk.sdk.VKSdk;
 
 import ru.vilka.vkontakte.R;
 import ru.vilka.vkontakte.Vkontakte;
+import ru.vilka.vkontakte.fragment.FriendFragment;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +21,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FriendFragment friendFragment = new FriendFragment();
+
         if(!VKSdk.wakeUpSession(Vkontakte.getContext())) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
+
+        getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, friendFragment)
+                    .commit();
+
 
     }
 }
